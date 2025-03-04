@@ -29,4 +29,4 @@ the following form: YYYY.0M.0D.
 
 ### Updated
 
-- Changed design to include ...
+- I added the following Kernel methods to my implementation: setMessage, setKey, getMessage, and getKey. This was to add more functionality and practicality to my program. This will allow for a more tangible design to sending and receiving messages through encryption.
