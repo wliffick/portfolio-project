@@ -190,9 +190,16 @@ will likely refine your design to make your implementation easier to use.
     - `void encrypt(String message, String key)`: Encrypts the given `message` using the provided `key`.
     - `String decrypt(String encryptedMessage, String key)`: Decrypts the given `message` using the provided `key`.
     - `boolean isEncrypted(String message)`: Checks to see if the given `message` is encrypted.
-    - `String hashMessage(String message)`: Computes a hash of the `message`.
+    - `void setMessage(String message)`
+    Stores the `message` to be encrypted or decrypted.
+    - `void setKey(int key)`
+    Stores the encryption `key`.
+    - `String getMessage()`
+    Retrieves the stored message.
+    - `String getKey()`
+    Retrieves the stored encryption key.
   - **Secondary Methods**:
-    - `void sendEncryptedMessage(String message, String key, String recipient)`: Encrypts and sends the `message` to the recipient.
+    - `void sendEncryptedMessage(String message, String key, String recipient)`: Encrypts and prints the `message` to the console.
     - `boolean verifyHash(String message, String hash)`: Verifies the integrity of the message by comparing their hashes.
     - `String hashAndEncrypt(String message, String key)`: Hashes the message and encrypts the message using the provided key.
     - `String decryptVerifyHash(String encryptedMessage, String key, String hash)`: Decrypts the message using the provided key and verifies its integrity by comparing the hashes.
