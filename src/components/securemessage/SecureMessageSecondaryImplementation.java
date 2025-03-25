@@ -1,11 +1,12 @@
 package components.securemessage;
 
-import components.standard.Standard;
-
 /**
  * Enhanced interface for secure communication with additional methods.
  */
-public class SecureMessageSecondary extends Standard<SecureMessage> {
+public class SecureMessageSecondaryImplementation
+        implements SecureMessageSecondary {
+
+    private SecureMessage secureMessage;
 
     /**
      * Encrypts and prints the message to the console.
@@ -17,7 +18,9 @@ public class SecureMessageSecondary extends Standard<SecureMessage> {
      * @param recipient
      *            the recipient of the encrypted message
      */
-    void sendEncryptedMessage(String message, String key, String recipient) {
+    @Override
+    public void sendEncryptedMessage(String message, String key,
+            String recipient) {
         String encryptedMessage = this.secureMessage.encrypt(message, key);
 
         System.out.println("To " + recipient + ": " + encryptedMessage);
@@ -32,6 +35,7 @@ public class SecureMessageSecondary extends Standard<SecureMessage> {
      *            the hash to be compared
      * @return true if the hashes match, false otherwise
      */
+    @Override
     boolean verifyHash(String message, String hash) {
         this.secureMessage.setMessage(message);
         String storedMessage = this.secureMessage.getMessage();
@@ -52,6 +56,7 @@ public class SecureMessageSecondary extends Standard<SecureMessage> {
      *            the key to be used for encryption
      * @return the hashed and encrypted message
      */
+    @Override
     String hashAndEncrypt(String message, String key) {
         this.secureMessage.setMessage(message);
 
@@ -78,6 +83,7 @@ public class SecureMessageSecondary extends Standard<SecureMessage> {
      *            the hash to be compared
      * @return the decrypted message if hashes match, null otherwise
      */
+    @Override
     String decryptVerifyHash(String encryptedMessage, String key, String hash) {
 
         String decryptedMessage = this.secureMessage.decrypt(encryptedMessage,
