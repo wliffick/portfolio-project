@@ -8,7 +8,7 @@ import components.standard.Standard;
 public interface SecureMessageSecondary extends Standard<SecureMessage> {
 
     /**
-     * s Encrypts and prints the message to the console.
+     * Encrypts and prints the message to the console.
      *
      * @param message
      *            the message to be encrypted
