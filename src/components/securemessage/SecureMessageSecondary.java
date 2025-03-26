@@ -79,4 +79,36 @@ public abstract class SecureMessageSecondary implements SecureMessage {
         return result;
     }
 
+    /**
+     * Returns a string representation of the SecureMessage object.
+     *
+     * @return a string representation of this SecureMessage object in the
+     *         format "SecureMessage: [Key: <key>, Message: <message>]"
+     */
+    @Override
+    public String toString() {
+        return "SecureMessage: [Key: " + this.getKey() + ", Message: "
+                + this.getMessage("") + "]";
+    }
+
+    /**
+     * Checks if this SecureMessage is equal to another object based on key and
+     * message.
+     *
+     * @param obj
+     *            the object to compare
+     * @return true if keys and messages are equal, false otherwise
+     */
+    @Override
+    public boolean equals(Object obj) {
+        boolean isEqual = false;
+        if (obj != null) {
+            SecureMessage other = (SecureMessage) obj;
+            boolean keysAreEqual = this.getKey().equals(other.getKey());
+            boolean messagesAreEqual = this.getMessage("")
+                    .equals(other.getMessage(""));
+            isEqual = keysAreEqual && messagesAreEqual;
+        }
+        return isEqual;
+    }
 }
