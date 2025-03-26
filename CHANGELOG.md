@@ -30,3 +30,14 @@ the following form: YYYY.0M.0D.
 ### Updated
 
 - I added the following Kernel methods to my implementation: setMessage, setKey, getMessage, and getKey. This was to add more functionality and practicality to my program. This will allow for a more tangible design to sending and receiving messages through encryption.
+
+
+## 2025.03.26
+
+### Added
+
+- Designed abstract class for SecureMessage component
+
+### Updated
+
+- I kept my design relatively the same but had to change a couple small things on my secondary methods to fit the overall concept i was going for.
