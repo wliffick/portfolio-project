@@ -1,13 +1,16 @@
 package components.securemessage;
 
 /**
- *
  * Abstract class implementing secondary methods for secure communication.
+ * <p>
+ * This class uses kernel methods to define higher-level operations such as
+ * hashing, verification, and printing encrypted messages.
+ * </p>
  */
 public abstract class SecureMessageSecondary implements SecureMessage {
 
     /**
-     * Encrypts and prints the message to the console.
+     * Encrypts a message and prints it to the console for a given recipient.
      *
      * @param message
      *            the message to be encrypted
@@ -23,30 +26,33 @@ public abstract class SecureMessageSecondary implements SecureMessage {
     }
 
     /**
-     * Verifies the integrity of the message by comparing their hashes.
+     * Verifies the integrity of the message by comparing its computed hash with
+     * the provided hash.
      *
      * @param message
-     *            the message to be verified
+     *            the message to verify
      * @param hash
-     *            the hash to be compared
-     * @return true if the hashes match, false otherwise
+     *            the expected hash value
+     * @return true if the computed hash matches the provided hash, false
+     *         otherwise
      */
     public boolean verifyHash(String message, String hash) {
         int computedHash = 0;
         for (int i = 0; i < message.length(); i++) {
             computedHash += message.charAt(i);
         }
-        return String.valueOf(computedHash).equals(hash);
+        boolean result = String.valueOf(computedHash).equals(hash);
+        return result;
     }
 
     /**
-     * Hashes the message and encrypts the message using the provided key.
+     * Hashes a message and then encrypts the hash using the given key.
      *
      * @param message
      *            the message to be hashed and encrypted
      * @param key
-     *            the key to be used for encryption
-     * @return the hashed and encrypted message
+     *            the key used to encrypt the hash
+     * @return the encrypted hash of the message
      */
     public String hashAndEncrypt(String message, String key) {
         int hash = 0;
@@ -54,20 +60,22 @@ public abstract class SecureMessageSecondary implements SecureMessage {
             hash += message.charAt(i);
         }
         String hashedMessage = String.valueOf(hash);
-        return this.encrypt(hashedMessage, key);
+        String result = this.encrypt(hashedMessage, key);
+        return result;
     }
 
     /**
-     * Decrypts the message using the provided key and verifies its integrity by
-     * comparing the hashes.
+     * Decrypts an encrypted message using the given key and verifies its
+     * integrity against the provided hash.
      *
      * @param encryptedMessage
-     *            the encrypted message to be decrypted
+     *            the encrypted message to decrypt
      * @param key
-     *            the encryption key
+     *            the key used to decrypt the message
      * @param hash
-     *            the hash to be compared
-     * @return the decrypted message if hashes match, otherwise null
+     *            the expected hash of the original message
+     * @return the original message if the hash matches, or a failure message
+     *         otherwise
      */
     public String decryptVerifyHash(String encryptedMessage, String key,
             String hash) {
@@ -80,35 +88,22 @@ public abstract class SecureMessageSecondary implements SecureMessage {
     }
 
     /**
-     * Returns a string representation of the SecureMessage object.
-     *
-     * @return a string representation of this SecureMessage object in the
-     *         format "SecureMessage: [Key: <key>, Message: <message>]"
-     */
-    @Override
-    public String toString() {
-        return "SecureMessage: [Key: " + this.getKey() + ", Message: "
-                + this.getMessage("") + "]";
-    }
-
-    /**
-     * Checks if this SecureMessage is equal to another object based on key and
-     * message.
+     * Compares this component with another object for equality.
+     * <p>
+     * Since internal data is not publicly accessible, this implementation
+     * defaults to reference (identity) equality.
+     * </p>
      *
      * @param obj
-     *            the object to compare
-     * @return true if keys and messages are equal, false otherwise
+     *            the object to compare with
+     * @return true if both references point to the same object, false otherwise
      */
     @Override
     public boolean equals(Object obj) {
-        boolean isEqual = false;
-        if (obj != null) {
-            SecureMessage other = (SecureMessage) obj;
-            boolean keysAreEqual = this.getKey().equals(other.getKey());
-            boolean messagesAreEqual = this.getMessage("")
-                    .equals(other.getMessage(""));
-            isEqual = keysAreEqual && messagesAreEqual;
+        boolean result = false;
+        if (obj instanceof SecureMessage) {
+            result = this == obj;
         }
-        return isEqual;
+        return result;
     }
 }
