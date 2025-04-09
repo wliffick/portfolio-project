@@ -5,6 +5,12 @@ import components.map.Map1L;
 
 /**
  * Kernel Implementation of the SecureMessage component.
+ *
+ * @convention $this.encryptedMap has non-null keys and values, and each
+ *             MessageKey has non-empty message and key strings.
+ *
+ * @correspondence this = mapping from each (message, key) pair in
+ *                 $this.encryptedMap to its associated encrypted message
  */
 public class SecureMessage1L extends SecureMessageSecondary {
 
@@ -53,8 +59,16 @@ public class SecureMessage1L extends SecureMessageSecondary {
     }
 
     /**
-     * Caesar cipher encryption. Encrypts and stores into a map.
+     * Encrypts the given message using Caesar cipher logic and stores the
+     * result in the map using the provided key.
+     *
+     * @param message
+     *            the original message to be encrypted
+     * @param key
+     *            the encryption key
+     * @return the encrypted version of the message
      */
+
     @Override
     public String encrypt(String message, String key) {
         assert message != null && key != null
@@ -78,7 +92,16 @@ public class SecureMessage1L extends SecureMessageSecondary {
     }
 
     /**
-     * Decrypts the message using Caesar cipher and key.
+     * Decrypts the given encrypted message using the provided key, based on
+     * Caesar cipher logic. This method does not consult the internal map; it
+     * performs decryption directly.
+     *
+     * @param encryptedMessage
+     *            the encrypted message to decrypt
+     * @param key
+     *            the encryption key that was used to encrypt the original
+     *            message
+     * @return the original decrypted message
      */
     @Override
     public String decrypt(String encryptedMessage, String key) {
@@ -95,7 +118,15 @@ public class SecureMessage1L extends SecureMessageSecondary {
     }
 
     /**
-     * Checks if the (message, key) combination was stored.
+     * Determines whether the given (message, key) pair has already been
+     * encrypted and stored in the internal map.
+     *
+     * @param message
+     *            the original message
+     * @param key
+     *            the encryption key
+     * @return true if the (message, key) pair exists in the map, false
+     *         otherwise
      */
     @Override
     public boolean isEncrypted(String message, String key) {
@@ -104,7 +135,14 @@ public class SecureMessage1L extends SecureMessageSecondary {
     }
 
     /**
-     * Retrieves the encrypted version of the message for the given key.
+     * Retrieves the encrypted version of the given message that was previously
+     * stored using the specified key.
+     *
+     * @param message
+     *            the original message
+     * @param key
+     *            the encryption key used to encrypt it
+     * @return the encrypted message associated with the (message, key) pair
      */
     @Override
     public String getEncrypted(String message, String key) {

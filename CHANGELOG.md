@@ -41,3 +41,20 @@ the following form: YYYY.0M.0D.
 ### Updated
 
 - I kept my design relatively the same but had to change a couple small things on my secondary methods to fit the overall concept i was going for.
+
+
+
+## 2025.04.08
+
+### Added
+
+- Designed kernel implementation for SecureMessage component
+- Created the 'MessageKey' class to represent unique (message, key) pairs
+- Stored the messages, encrypted messages, and the key in a 'Map<MessageKey, String>'
+
+
+### Updated
+
+- Changed design to include multiple encrypted versions of the same message using different keys
+- I removed 'setMessage', 'setKey', 'getMessage', and 'getKey' to reflect my new design.
+- I made changes to 'equals()' and removed 'toString()'
