@@ -2,7 +2,7 @@
 
 - **Name**: Wade Liffick
 - **Dot Number**: liffick.6
-- **Due Date**: 4/17 @ 3pm est
+- **Due Date**: 4/18 @ 11:59pm est
 ## Assignment Overview
 
 By now, you should have an entire component implemented at all levels. For

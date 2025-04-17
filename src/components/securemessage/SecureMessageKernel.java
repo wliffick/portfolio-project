@@ -3,69 +3,63 @@ package components.securemessage;
 import components.standard.Standard;
 
 /**
- * Kernel interface for secure communication with primary methods.
+ * Secure message kernel component with primary methods.
+ *
+ * This component securely encrypts and decrypts messages using Caesar
+ * cipher-style logic. Each unique (message, key) pair is associated with one
+ * encrypted result.
+ *
  */
 public interface SecureMessageKernel extends Standard<SecureMessage> {
-    /**
-     * Encrypts the given message using the provided key.
-     *
-     * @param message
-     *            the message to be encrypted
-     * @param key
-     *            the encryption key
-     */
-    void encrypt(String message, String key);
 
     /**
-     * Decrypts the given message using the provided key.
+     * Encrypts the given message using the provided key and stores the result.
      *
-     * @param encryptedMessage
-     *            the message to be decrypted
+     * @param message
+     *            the original message to encrypt
      * @param key
      *            the encryption key
-     * @return the decrypted message
+     * @return the encrypted version of the message
+     * @updates this
+     * @requires message and key are non-null and key is non-empty
+     * @ensures stores the (message, key) → result mapping if not already
+     *          stored, and returns the encrypted version
+     */
+    String encrypt(String message, String key);
+
+    /**
+     * Decrypts the given encrypted message using the provided key.
+     *
+     * @param encryptedMessage
+     *            the encrypted message
+     * @param key
+     *            the encryption key
+     * @return the decrypted version of the message
+     * @requires encryptedMessage and key are non-null and key is non-empty
+     * @ensures returns the result of Caesar cipher decryption
      */
     String decrypt(String encryptedMessage, String key);
 
     /**
-     * Checks to see if the given message is encrypted.
+     * Checks whether the given (message, key) pair has already been encrypted
+     * and stored.
      *
      * @param message
-     *            the message to be checked
-     * @return true if the message is encrypted, false otherwise
-     */
-    boolean isEncrypted(String message);
-
-    /**
-     * Sets the message to be encrypted or decrypted.
-     *
-     * @param message
-     *            the message to be set
-     */
-    void setMessage(String message);
-
-    /**
-     * Sets the encryption key.
-     *
+     *            the message to check
      * @param key
-     *            the encryption key to be set
+     *            the encryption key
+     * @return true if the (message, key) pair exists in the internal mapping
      */
-    void setKey(String key);
+    boolean isEncrypted(String message, String key);
 
     /**
-     * Retrieves the stored message corresponding to the given encrypted
-     * message.
+     * Retrieves the encrypted version of the given message and key pair.
      *
-     * @param encryptedMessage
-     *            the encrypted message
-     * @return the corresponding stored message
+     * @param message
+     *            the original message
+     * @param key
+     *            the encryption key
+     * @return the encrypted message associated with this (message, key)
      */
-    String getMessage(String encryptedMessage);
-
-    /**
-     * Retrieves the stored encryption key.
-     *
-     * @return the stored encryption key
-     */
-    String getKey();
+    String getEncrypted(String message, String key);
 }
