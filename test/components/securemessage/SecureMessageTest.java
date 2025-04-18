@@ -5,18 +5,22 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * JUnit test fixture for {@code SecureMessage1L}'s kernel and secondary
- * methods.
+ * JUnit test fixture for SecureMessage1L's kernel and secondary methods.
  */
-public abstract class SecureMessageTest {
+public class SecureMessageTest extends SecureMessage1LTest {
 
     /**
      * Abstract constructor for the concrete SecureMessage implementation.
      */
-    protected abstract SecureMessage constructorTest();
+    @Override
+    protected SecureMessage constructorTest() {
+        return new SecureMessage1L();
+    }
 
     /**
-     * Creates and returns a new {@code SecureMessage} object.
+     * Creates and returns a new SecureMessage object.
+     *
+     * @return new SecureMessage object
      */
     private SecureMessage createSecureMessage() {
         return this.constructorTest();

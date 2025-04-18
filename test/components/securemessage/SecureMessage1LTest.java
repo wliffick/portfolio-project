@@ -1,15 +1,12 @@
 package components.securemessage;
 
-import components.securemessage.SecureMessage;
-import components.securemessage.SecureMessage1L;
-
 /**
- * JUnit test fixture for SecureMessage1L.
+ * Abstract JUnit test fixture for SecureMessage kernel and secondary methods.
  */
-public class SecureMessage1LTest extends SecureMessageTest {
+public abstract class SecureMessage1LTest {
 
-    @Override
-    protected final SecureMessage constructorTest() {
-        return new SecureMessage1L();
-    }
+    /**
+     * @return a new instance of the implementation under test.
+     */
+    protected abstract SecureMessage constructorTest();
 }
