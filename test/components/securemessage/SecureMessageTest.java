@@ -106,7 +106,7 @@ public abstract class SecureMessageTest {
         assertEquals("Message should not be in source", true, sourceEmpty);
     }
 
-    // ========== SECONDARY METHOD TESTS ==========
+    // Secondary Method Tests
 
     /**
      * Test sendEncryptedMessage prints to console (manual observation).
@@ -116,7 +116,6 @@ public abstract class SecureMessageTest {
         SecureMessage1L sm = new SecureMessage1L();
         sm.sendEncryptedMessage("hi", "key", "Alice");
 
-        // Visually verify console: To Alice: <encrypted message>
     }
 
     /**
