@@ -1,62 +1,60 @@
 package components.securemessage;
 
-import components.standard.Standard;
-
 /**
- * Kernel interface for secure communication with primary methods.
- * <p>
- * This component securely encrypts and decrypts messages using Caesar
- * cipher-style logic. Each unique (message, key) pair is associated with one
- * encrypted result.
- * </p>
+ * Enhanced interface for secure communication that includes the secondary
+ * methods.
+ *
  */
-public interface SecureMessage extends Standard<SecureMessage> {
+public interface SecureMessage extends SecureMessageKernel {
 
     /**
-     * Encrypts the given message using the provided key and stores the result.
-     * If the same message is encrypted with a different key, both are stored
-     * independently.
+     * Encrypts a message and prints it to the console for a given recipient.
      *
      * @param message
-     *            the original message to encrypt
+     *            the message to be encrypted
      * @param key
      *            the encryption key
-     * @return the encrypted version of the message
+     * @param recipient
+     *            the recipient of the encrypted message
      */
-    String encrypt(String message, String key);
+    void sendEncryptedMessage(String message, String key, String recipient);
 
     /**
-     * Decrypts the given encrypted message using the provided key.
+     * Verifies the integrity of the message by comparing its computed hash with
+     * the provided hash.
+     *
+     * @param message
+     *            the message to verify
+     * @param hash
+     *            the expected hash value
+     * @return true if the computed hash matches the provided hash, false
+     *         otherwise
+     */
+    boolean verifyHash(String message, String hash);
+
+    /**
+     * Hashes a message and then encrypts the hash using the given key.
+     *
+     * @param message
+     *            the message to be hashed and encrypted
+     * @param key
+     *            the key used to encrypt the hash
+     * @return the encrypted hash of the message
+     */
+    String hashAndEncrypt(String message, String key);
+
+    /**
+     * Decrypts an encrypted message using the given key and verifies its
+     * integrity against the provided hash.
      *
      * @param encryptedMessage
      *            the encrypted message to decrypt
      * @param key
-     *            the encryption key used to encrypt the original message
-     * @return the decrypted original message
+     *            the key used to decrypt the message
+     * @param hash
+     *            the expected hash of the original message
+     * @return the original message if the hash matches, or a failure message
+     *         otherwise
      */
-    String decrypt(String encryptedMessage, String key);
-
-    /**
-     * Checks whether the given (message, key) pair has been encrypted and
-     * stored.
-     *
-     * @param message
-     *            the original message
-     * @param key
-     *            the encryption key
-     * @return true if the pair is in storage, false otherwise
-     */
-    boolean isEncrypted(String message, String key);
-
-    /**
-     * Retrieves the encrypted version of the given message using the provided
-     * key.
-     *
-     * @param message
-     *            the original message
-     * @param key
-     *            the key that was used to encrypt it
-     * @return the corresponding encrypted message
-     */
-    String getEncrypted(String message, String key);
+    String decryptVerifyHash(String encryptedMessage, String key, String hash);
 }
