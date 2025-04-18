@@ -58,3 +58,17 @@ the following form: YYYY.0M.0D.
 - Changed design to include multiple encrypted versions of the same message using different keys
 - I removed 'setMessage', 'setKey', 'getMessage', and 'getKey' to reflect my new design.
 - I made changes to 'equals()' and removed 'toString()'
+
+## 2025.04.18
+
+### Added
+
+- Designed test suite for the SecureMessage component
+- Designed two different use cases for the SecureMessage component
+
+### Updated
+
+- Cleaned up the interface to make everything consistent and easier to use.
+- Fixed up the logic in encrypt, decrypt, and isEncrypted so they behave correctly.
+- Went through and made sure all the comments and method headers were written correctly.
+```
