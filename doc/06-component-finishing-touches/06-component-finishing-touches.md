@@ -1,9 +1,8 @@
 # Portfolio Part 6: Finishing Touches
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
-
+- **Name**: Wade Liffick
+- **Dot Number**: liffick.6
+- **Due Date**: 4/18 @ 11:59pm est
 ## Assignment Overview
 
 By now, you should have an entire component implemented at all levels. For
@@ -49,8 +48,6 @@ Many of these additional techniques are somewhat out of the scope of this
 course, but just knowing about them could set you up for long term success.
 
 ## Assignment Checklist
-
-<!-- TODO: browse the checklist then delete this comment -->
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -141,7 +138,6 @@ to see them. If you don't like this workflow, you may try following the
 rebase strategies described [here](https://stackoverflow.com/questions/35790561/working-while-waiting-for-pending-pr)
 and [here](https://stackoverflow.com/questions/18021888/continue-working-on-a-git-branch-after-making-a-pull-request).
 
-<!-- TODO: make a new branch from main then delete this comment -->
 
 ## Assignment Tasks
 
@@ -307,18 +303,27 @@ Take some time to fill them out honestly.
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
 
-<!-- TODO: discuss -->
+I think this project allowed me to get so much more experience with actual software development
+than I could get in the classroom. It involved lots of time thinking and nothing was set up
+for you. Meaning that we had to fully understand the material in class to successfully do
+this project.
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
-<!-- TODO: discuss -->
+This project definitely brought up some gaps in my knowledge of software development.
+I realized that I did not have a full understanding of how the kernel, secondary, abstract, and
+other methods truly fit together. I addressed this by digging in the notes and making sure
+I got a full understanding of it.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
-<!-- TODO: discuss -->
+This project got me a lot more intrigued in software development. While it was
+hard at some points throughout this process, seeing the finished product and
+realizing that it is fully functioning is such an amazing feeling because I know
+how much work went into this and it is great to see it become worth it in the end.
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -326,29 +331,32 @@ Take some time to fill them out honestly.
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+I definitely picked up some useful technical skills such as abstraction, object-oriented design, interface design, and testing. However, I was able to pick up even more non-technical skills such as project organization, researching skills, attention to detail, and creativity.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
+- Designed and implemented a secure message encryption Java component using object-oriented design and Caesar cipher logic.
+- Developed client-side and kernel interfaces, an abstract secondary class, and a full kernel implementation from scratch.
+- Created and executed JUnit test cases for kernel and secondary methods.
+- Gained experience with managing a project as well as enhancing my attention to detail and creativity.
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+I really enjoy working with encryption and this project has pushed me to look into the more sophisticated types of encryption that are more used today. I would say that this has enhanced my career trajectory in the cybersecurity field.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+As mentioned in the previous question, I could build my knowledge on the many practices that are used in cybersecurity and start to build more projects of my own to showcase my knowledge. I know someone that graduated a few years ahead of me in high school that now works as a cybersecurity analyst, so he could be a person to go to for some advice in this field.
 
 ### Changelog
 
-<!-- TODO: update CHANGELOG then delete this comment -->
+
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -384,7 +392,6 @@ request merge (or at least tag your commits). This is not required.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
 
 Assuming that your project is in a GitHub repo somewhere and your changes are on
 a proof-of-concept branch, then what we'll want you to do is create a pull
@@ -436,6 +443,5 @@ If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
 
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [survey]: https://forms.gle/dumXHo6A4Enucdkq9
