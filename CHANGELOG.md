@@ -66,4 +66,4 @@ the following form: YYYY.0M.0D.
 - I cloned the repo and ensured that all the necessary installations were complete in VSCode.
 - I added my three brainstorming topics to the `01-component-brainstorming` document.
 - I created this `CHANGELOG` document.
-```
+
